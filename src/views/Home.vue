@@ -11,7 +11,7 @@
             </div>
             <div class="row">
               <div class="col-4 offset-4">
-                <button class="btn btn-block btn-start">Let's start</button>
+                <button @click="goToBusiness()" class="btn btn-block btn-start">Let's start</button>
               </div>
             </div>
           </div>
@@ -20,6 +20,18 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+    name: "Home",
+    methods: {
+        goToBusiness() {
+            this.$router.push({ path: '/business' });
+        }
+    }
+}
+</script>
+
 <style>
 #main-content {
   overflow-x: hidden;
