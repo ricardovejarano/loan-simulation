@@ -6,7 +6,16 @@
           <span>Decision</span>
         </div>
       </div>
+      <div class="row mt-3">
+        <div class="col-6">
+            <button @click="back()" class="btn">Back</button>
+        </div>
+        <div class="col-6">
+            <button @click="returnStart()" class="btn">Again</button>
+        </div>
     </div>
+    </div>
+    
   </div>
 </template>
 <script>
