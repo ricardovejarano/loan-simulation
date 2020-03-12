@@ -15,6 +15,16 @@ export default new Router({
             path: '/business',
             name: 'business',
             component: () => import('./views/Business.vue')
+        },
+        {
+            path: '/owner',
+            name: 'owner',
+            component: () => import('./views/Owner.vue')
+        },
+        {
+            path: '/decision',
+            name: 'decision',
+            component: () => import('./views/Decision.vue')
         }
     ]
 })
