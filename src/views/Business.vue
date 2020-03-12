@@ -3,26 +3,26 @@
     <div class="card">
       <div class="row text-center">
         <div class="col-12">
-          <span>Lets start with the business information</span>
+          <span>Business Information</span>
         </div>
       </div>
       <div class="row">
-        <div class="col-6 mt-3">
+        <div class="col-12 col-md-6 mt-3">
           <input v-model="businessInfo.taxId" @keyup="changeValueBusiness({value: $event.target.value, name: 'taxId'})" class="form-control" placeholder="Tax Id" autocomplete="off"/>
         </div>
-        <div class="col-6 mt-3">
+        <div class="col-12 col-md-6 mt-3">
           <input v-model="businessInfo.businessName" @keyup="changeValueBusiness({value: $event.target.value, name: 'businessName'})" class="form-control" placeholder="Business Name" autocomplete="off"/>
         </div>
-        <div class="col-6 mt-3">
+        <div class="col-12 col-md-6 mt-3">
           <input v-model="businessInfo.businessAddress" @keyup="changeValueBusiness({value: $event.target.value, name: 'businessAddress'})" class="form-control" placeholder="Business Adress" autocomplete="off"/>
         </div>
-        <div class="col-6 mt-3">
+        <div class="col-12 col-md-6 mt-3">
           <input v-model="businessInfo.city" @keyup="changeValueBusiness({value: $event.target.value, name: 'city'})" class="form-control" placeholder="City" autocomplete="off"/>
         </div>
-        <div class="col-6 mt-3">
+        <div class="col-12 col-md-6 mt-3">
           <input v-model="businessInfo.state" @keyup="changeValueBusiness({value: $event.target.value, name: 'state'})" class="form-control" placeholder="State" autocomplete="off"/>
         </div>
-        <div class="col-6 mt-3">
+        <div class="col-12 col-md-6 mt-3">
           <input v-model="businessInfo.postalCode" @keyup="changeValueBusiness({value: $event.target.value, name: 'postalCode'})" class="form-control" placeholder="Postal Cide" autocomplete="off"/>
         </div>
         <div class="col-12 mt-3">
@@ -56,6 +56,7 @@ export default {
 </script>
 <style>
 .card {
+  min-width: 17rem;
   position: absolute;
   border-radius: 1rem;
   padding: 2rem;
