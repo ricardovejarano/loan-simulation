@@ -8,25 +8,25 @@
       </div>
       <div class="row">
         <div class="col-6 mt-3">
-          <input v-model="socialSecurityNumber" class="form-control" placeholder="Social Security Number" autocomplete="off"/>
+          <input v-model="ownerInfo.socialSecurityNumber"  @keyup="changeValueOwner({value: $event.target.value, name: 'socialSecurityNumber'})" class="form-control" placeholder="Social Security Number" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="name" class="form-control" placeholder="Name" autocomplete="off"/>
+          <input v-model="ownerInfo.name"  @keyup="changeValueOwner({value: $event.target.value, name: 'name'})" class="form-control" placeholder="Name" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="email" class="form-control" placeholder="Email" autocomplete="off"/>
+          <input v-model="ownerInfo.email"  @keyup="changeValueOwner({value: $event.target.value, name: 'email'})" class="form-control" placeholder="Email" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="address" class="form-control" placeholder="Address" autocomplete="off"/>
+          <input v-model="ownerInfo.address"  @keyup="changeValueOwner({value: $event.target.value, name: 'address'})" class="form-control" placeholder="Address" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="city" class="form-control" placeholder="City" autocomplete="off"/>
+          <input v-model="ownerInfo.city"  @keyup="changeValueOwner({value: $event.target.value, name: 'city'})" class="form-control" placeholder="City" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="state" class="form-control" placeholder="State" autocomplete="off"/>
+          <input v-model="ownerInfo.state"  @keyup="changeValueOwner({value: $event.target.value, name: 'state'})" class="form-control" placeholder="State" autocomplete="off"/>
         </div>
         <div class="col-12 mt-3">
-          <input v-model="postalCode" class="form-control" placeholder="Postal Code" autocomplete="off"/>
+          <input v-model="ownerInfo.postalCode"  @keyup="changeValueOwner({value: $event.target.value, name: 'postalCode'})" class="form-control" placeholder="Postal Code" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
           <button @click="back()" class="btn btn-block">Back</button>
@@ -40,9 +40,13 @@
 </template>
 <script>
 
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: "Owner",
+  computed: {
+    ...mapState(['ownerInfo'])
+  },
   data: function() {
     return {
       socialSecurityNumber: 0,
@@ -60,7 +64,8 @@ export default {
     },
     back() {
       this.$router.push({ path: "/business" });
-    }
+    },
+     ...mapMutations(['changeValueOwner'])
   }
 };
 </script>

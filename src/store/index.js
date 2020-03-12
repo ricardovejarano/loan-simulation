@@ -14,6 +14,16 @@ export default new Vuex.Store({
       state: "",
       postalCode: null,
       requestedAmount: null
+    },
+    ownerInfo:
+    {
+      socialSecurityNumber: null,
+      name: "",
+      email: "",
+      address: "",
+      city: "",
+      postalCode: null,
+      state: ""
     }
   },
   mutations: {
@@ -35,7 +45,26 @@ export default new Vuex.Store({
           break;
         default: state.businessInfo.taxId = value.value;
           break;
-
+      }
+    },
+    changeValueOwner(state, value) {
+      switch (value.name) {
+        case 'socialSecurityNumber': state.ownerInfo.socialSecurityNumber = value.value;
+          break;
+        case 'name': state.ownerInfo.name = value.value;
+          break;
+        case 'email': state.ownerInfo.email = value.value;
+          break;
+        case 'address': state.ownerInfo.address = value.value;
+          break;
+        case 'city': state.ownerInfo.city = value.value;
+          break;
+        case 'postalCode': state.ownerInfo.postalCode = value.value;
+          break;
+        case 'state': state.ownerInfo.state = value.value;
+          break;
+        default: state.ownerInfo.taxId = value.value;
+          break;
       }
     }
   },
