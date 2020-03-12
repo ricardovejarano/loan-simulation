@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div class="card">
+    <div v-if="flagShow" class="card">
       <div class="row text-center">
         <div class="col-12">
-          <span>Decision</span>
+          <span>{{status}}</span>
         </div>
       </div>
       <div class="row mt-3">
@@ -24,7 +24,14 @@ import { mapState } from 'vuex'
 
 export default {
   name: "Decision",
-   computed: {
+  data: function () {
+    return {
+      status: '',
+      nameClass: '',
+      flagShow: false
+    }
+  },
+  computed: {
     ...mapState(['businessInfo'])
   },
   methods: {
@@ -33,13 +40,28 @@ export default {
     },
     returnStart() {
       this.$router.push({ path: "/business" });
+    },
+    defineCass(status) {
+        switch(status) {
+            case 'Approved': this.nameClass = 'card-aproved';
+            break;
+            case 'Declined': this.nameClass = 'card-declined';
+            break;
+            case 'Undecided': this.nameClass = 'card-undeclined';
+            break;
+            default: this.nameClass = 'card-undeclined';
+            break;    
+        }
+        this.status = status;
+        this.flagShow = true;
     }
+
   },
   mounted () {
     const amount = this.$store.state.businessInfo.requestedAmount; 
     axios
       .get(`http://localhost:8881/request?requested_amount=${amount}`)
-      .then(response => console.log(response.data.response));
+      .then(response => this.defineCass(response.data.response));
   }
 };
 </script>
@@ -52,6 +74,18 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.card-aproved {
+  background-color: green;
+}
+
+.card-declined {
+  background-color: red;
+}
+
+.card-undeclined {
+  background-color: blue;    
 }
 
 .btn {
