@@ -1,18 +1,16 @@
 <template>
-  <div id="main-content">
-    <div class="container">
-      <div class="row align-middle align-items-center card-login">
-        <div class="col-6 mx-auto">
-          <div class="jumbotron text-center">
-            <div class="row mb-3">
-              <div class="col-4 offset-4 title-txt">
-                <span>Welcome to the loan simulation</span>
-              </div>
+  <div class="container">
+    <div class="row align-middle align-items-center card-login">
+      <div class="col-6 mx-auto">
+        <div class="jumbotron text-center">
+          <div class="row mb-3">
+            <div class="col-4 offset-4 title-txt">
+              <span>Welcome to the loan simulation</span>
             </div>
-            <div class="row">
-              <div class="col-4 offset-4">
-                <button @click="goToBusiness()" class="btn btn-block btn-start">Let's start</button>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-4 offset-4">
+              <button @click="goToBusiness()" class="btn btn-block btn-start">Let's start</button>
             </div>
           </div>
         </div>
@@ -23,13 +21,13 @@
 
 <script>
 export default {
-    name: "Home",
-    methods: {
-        goToBusiness() {
-            this.$router.push({ path: '/business' });
-        }
+  name: "Home",
+  methods: {
+    goToBusiness() {
+      this.$router.push({ path: "/business" });
     }
-}
+  }
+};
 </script>
 
 <style>
@@ -38,7 +36,7 @@ export default {
   overflow-y: hidden;
   background-color: rgba(226, 226, 226, 1);
 }
-#main-content .card-login {
+.card-login {
   height: 100vh;
 }
 
