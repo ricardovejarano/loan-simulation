@@ -28,7 +28,10 @@
         <div class="col-12 mt-3">
           <input v-model="postalCode" class="form-control" placeholder="Postal Code" autocomplete="off"/>
         </div>
-        <div class="col-12 mt-3">
+        <div class="col-6 mt-3">
+          <button @click="back()" class="btn btn-block">Back</button>
+        </div>
+        <div class="col-6 mt-3">
           <button @click="goToDecision()" class="btn btn-block">Apply For</button>
         </div>
       </div>
@@ -36,6 +39,8 @@
   </div>
 </template>
 <script>
+
+
 export default {
   name: "Owner",
   data: function() {
@@ -52,6 +57,9 @@ export default {
   methods: {
     goToDecision() {
       this.$router.push({ path: "/decision" });
+    },
+    back() {
+      this.$router.push({ path: "/business" });
     }
   }
 };

@@ -19,6 +19,8 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: "Decision",
   methods: {
@@ -28,6 +30,11 @@ export default {
     returnStart() {
       this.$router.push({ path: "/business" });
     }
+  },
+  mounted () {
+    axios
+      .get('http://localhost:8881/request?requested_amount=100')
+      .then(response => console.log(response.data));
   }
 };
 </script>
