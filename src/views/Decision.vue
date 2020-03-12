@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="flagShow" class="card">
+    <div v-if="flagShow" v-bind:class="nameClass" class="card">
       <div class="row text-center">
         <div class="col-12">
           <span>{{status}}</span>
