@@ -3,7 +3,7 @@
     <div class="card">
       <div class="row text-center">
         <div class="col-12">
-          <span>Lets start with the information</span>
+          <span>Lets start with the business information</span>
         </div>
       </div>
       <div class="row">
@@ -20,13 +20,13 @@
           <input v-model="businessInfo.city" @keyup="changeValueBusiness({value: $event.target.value, name: 'city'})" class="form-control" placeholder="City" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="businessInfo.state" @keyup="changeValueBusiness({value: $event.target.value, name: 'state'})" class="form-control" placeholder="Business Adress" autocomplete="off"/>
+          <input v-model="businessInfo.state" @keyup="changeValueBusiness({value: $event.target.value, name: 'state'})" class="form-control" placeholder="State" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="businessInfo.postalCode" @keyup="changeValueBusiness({value: $event.target.value, name: 'postalCode'})" class="form-control" placeholder="City" autocomplete="off"/>
+          <input v-model="businessInfo.postalCode" @keyup="changeValueBusiness({value: $event.target.value, name: 'postalCode'})" class="form-control" placeholder="Postal Cide" autocomplete="off"/>
         </div>
         <div class="col-12 mt-3">
-          <input v-model="businessInfo.requestedAmount" @keyup="changeValueBusiness({value: $event.target.value, name: 'requestedAmount'})" class="form-control" placeholder="City" autocomplete="off"/>
+          <input v-model="businessInfo.requestedAmount" @keyup="changeValueBusiness({value: $event.target.value, name: 'requestedAmount'})" class="form-control" placeholder="Requested Amount" autocomplete="off"/>
         </div>
         <div class="col-12 mt-3">
           <button @click="goToOwner()" class="btn btn-block">Next Step</button>

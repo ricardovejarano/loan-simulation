@@ -7,13 +7,13 @@ export default new Vuex.Store({
   state: {
     businessInfo:
     {
-      taxId: 0,
+      taxId: null,
       businessName: "",
       businessAddress: "",
       city: "",
       state: "",
-      postalCode: 0,
-      requestedAmount: 0
+      postalCode: null,
+      requestedAmount: null
     }
   },
   mutations: {
