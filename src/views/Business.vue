@@ -29,7 +29,7 @@
           <input v-model="requestedAmount" class="form-control" placeholder="City" autocomplete="off"/>
         </div>
         <div class="col-12 mt-3">
-          <button class="btn btn-block">Next Step</button>
+          <button @click="goToOwner()" class="btn btn-block">Next Step</button>
         </div>
       </div>
     </div>
@@ -48,6 +48,11 @@ export default {
       postalCode: 0,
       requestedAmount: 0
     };
+  },
+  methods: {
+    goToOwner() {
+      this.$router.push({ path: "/owner" });
+    }
   }
 };
 </script>
@@ -59,7 +64,6 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 30rem;
 }
 
 .btn {
