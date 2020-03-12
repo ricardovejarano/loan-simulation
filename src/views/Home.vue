@@ -9,7 +9,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-4 offset-4">
+            <div class="col-6 offset-3">
               <button @click="goToBusiness()" class="btn btn-block btn-start">Let's start</button>
             </div>
           </div>

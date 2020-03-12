@@ -28,7 +28,10 @@
         <div class="col-12 mt-3">
           <input v-model="businessInfo.requestedAmount" @keyup="changeValueBusiness({value: $event.target.value, name: 'requestedAmount'})" class="form-control" placeholder="Requested Amount" autocomplete="off"/>
         </div>
-        <div class="col-12 mt-3">
+        <div class="col-12 col-md-4 mt-3">
+           <button @click="goHome()" class="btn btn-block btn-home"><i class="fas fa-home"></i></button>
+        </div>
+        <div class="col-12 col-md-8 mt-3">
           <button @click="goToOwner()" class="btn btn-block">Next Step</button>
         </div>
       </div>
@@ -46,6 +49,9 @@ export default {
   methods: {
     goToOwner() {
       this.$router.push({ path: "/owner" });
+    },
+    goHome() {
+      this.$router.push({ path: "/" });
     },
     ...mapMutations(['changeValueBusiness']),
     keymonitor(event) {
@@ -73,6 +79,17 @@ export default {
 }
 
 .btn:hover {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-home {
+  background-color: white;
+  color: black;
+}
+
+.btn-home:hover {
   background-color: black;
   color: white;
   font-weight: bold;

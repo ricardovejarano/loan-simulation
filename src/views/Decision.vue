@@ -3,7 +3,7 @@
     <div v-if="flagShow" v-bind:class="nameClass" class="card">
       <div class="row text-center">
         <div class="col-12">
-          <span>{{status}}</span>
+          <span class="final-decision-txt">{{status}}</span>
         </div>
       </div>
       <div class="row mt-3">
@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   position: absolute;
   border-radius: 1rem;
@@ -77,20 +77,25 @@ export default {
 }
 
 .card-aproved {
-  background-color: green;
+  background-color: #228B22;
 }
 
 .card-declined {
-  background-color: red;
+  background-color: #B22222;
 }
 
 .card-undeclined {
-  background-color: blue;    
+  background-color: #00CED1;    
+}
+
+.final-decision-txt {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .btn {
   border-radius: 1rem;
-  background-color: grey;
+  background-color: transparent;
   color: white;
   font-weight: bold;
 }
