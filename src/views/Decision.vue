@@ -20,9 +20,13 @@
 </template>
 <script>
 import axios from 'axios';
+import { mapState } from 'vuex'
 
 export default {
   name: "Decision",
+   computed: {
+    ...mapState(['businessInfo'])
+  },
   methods: {
     back() {
       this.$router.push({ path: "/owner" });
@@ -32,8 +36,9 @@ export default {
     }
   },
   mounted () {
+    const amount = this.$store.state.businessInfo.requestedAmount; 
     axios
-      .get('http://localhost:8881/request?requested_amount=100')
+      .get(`http://localhost:8881/request?requested_amount=${amount}`)
       .then(response => console.log(response.data.response));
   }
 };
