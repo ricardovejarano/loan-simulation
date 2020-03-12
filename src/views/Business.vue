@@ -8,25 +8,25 @@
       </div>
       <div class="row">
         <div class="col-6 mt-3">
-          <input v-model="taxId" class="form-control" placeholder="Tax Id" autocomplete="off"/>
+          <input v-model="businessInfo.taxId" @keyup="changeValueBusiness({value: $event.target.value, name: 'taxId'})" class="form-control" placeholder="Tax Id" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="businessName" class="form-control" placeholder="Business Name" autocomplete="off"/>
+          <input v-model="businessInfo.businessName" @keyup="changeValueBusiness({value: $event.target.value, name: 'businessName'})" class="form-control" placeholder="Business Name" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="businessAddress" class="form-control" placeholder="Business Adress" autocomplete="off"/>
+          <input v-model="businessInfo.businessAddress" @keyup="changeValueBusiness({value: $event.target.value, name: 'businessAddress'})" class="form-control" placeholder="Business Adress" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="city" class="form-control" placeholder="City" autocomplete="off"/>
+          <input v-model="businessInfo.city" @keyup="changeValueBusiness({value: $event.target.value, name: 'city'})" class="form-control" placeholder="City" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="state" class="form-control" placeholder="Business Adress" autocomplete="off"/>
+          <input v-model="businessInfo.state" @keyup="changeValueBusiness({value: $event.target.value, name: 'state'})" class="form-control" placeholder="Business Adress" autocomplete="off"/>
         </div>
         <div class="col-6 mt-3">
-          <input v-model="postalCode" class="form-control" placeholder="City" autocomplete="off"/>
+          <input v-model="businessInfo.postalCode" @keyup="changeValueBusiness({value: $event.target.value, name: 'postalCode'})" class="form-control" placeholder="City" autocomplete="off"/>
         </div>
         <div class="col-12 mt-3">
-          <input v-model="requestedAmount" class="form-control" placeholder="City" autocomplete="off"/>
+          <input v-model="businessInfo.requestedAmount" @keyup="changeValueBusiness({value: $event.target.value, name: 'requestedAmount'})" class="form-control" placeholder="City" autocomplete="off"/>
         </div>
         <div class="col-12 mt-3">
           <button @click="goToOwner()" class="btn btn-block">Next Step</button>
@@ -36,22 +36,20 @@
   </div>
 </template>
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   name: "Business",
-  data: function() {
-    return {
-      taxId: 0,
-      businessName: "",
-      businessAddress: "",
-      city: "",
-      state: "",
-      postalCode: 0,
-      requestedAmount: 0
-    };
+  computed: {
+    ...mapState(['businessInfo'])
   },
   methods: {
     goToOwner() {
       this.$router.push({ path: "/owner" });
+    },
+    ...mapMutations(['changeValueBusiness']),
+    keymonitor(event) {
+      console.log(event.target.value)
     }
   }
 };
