@@ -34,7 +34,7 @@ export default {
   mounted () {
     axios
       .get('http://localhost:8881/request?requested_amount=100')
-      .then(response => console.log(response.data));
+      .then(response => console.log(response.data.response));
   }
 };
 </script>
